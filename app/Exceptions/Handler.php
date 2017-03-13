@@ -4,7 +4,11 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Auth\AuthenticationException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\Console\Style\SymfonyStyle;
+use Symfony\Component\HttpKernel\Exception\HttpException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Handler extends ExceptionHandler
 {
@@ -20,6 +24,7 @@ class Handler extends ExceptionHandler
         \Illuminate\Database\Eloquent\ModelNotFoundException::class,
         \Illuminate\Session\TokenMismatchException::class,
         \Illuminate\Validation\ValidationException::class,
+        \App\Exceptions\UnauthorizedException::class,
     ];
 
     /**
@@ -44,7 +49,34 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        return parent::render($request, $exception);
+        switch ($exception) {
+            case ($exception instanceof NotFoundHttpException):
+                return $this->renderException($exception);
+                break;
+            case ($exception instanceof ModelNotFoundException):
+                return $this->renderException($exception);
+                break;
+            case ($exception instanceof UnauthorizedException):
+                return $this->renderException($exception);
+            default:
+                return parent::render($request, $exception);
+        }
+    }
+
+    public function renderException($exception)
+    {
+        switch ($exception) {
+            case ($exception instanceof NotFoundHttpException):
+                return response()->view('errors.404', [], 404);
+                break;
+            case ($exception instanceof ModelNotFoundException):
+                return response()->view('errors.404', [], 404);
+                break;
+            case ($exception instanceof UnauthorizedException):
+                return response()->view('errors.unauthorized');
+            default:
+                return (new SymfonyDisplayer(config('app.debug')))->createResponse($exception);
+        }
     }
 
     /**

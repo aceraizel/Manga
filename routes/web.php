@@ -11,6 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PagesController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+
+Route::get('widget/create', ['as' => 'widget.create', 'uses' => 'WidgetController@create']);
+
+Route::get('widget/{id}-{slug?}', ['as' => 'widget.show', 'uses' => 'WidgetController@show']);
+
+Route::resource('widget', "WidgetController", ['except' => ['show', 'create']]);
+
+Route::get('test', ['middleware' => ['auth', 'admin'], 'uses' => 'TestController@index']);
+
+Route::get('admin', ['as' => 'admin', 'uses' => 'AdminController@index']);

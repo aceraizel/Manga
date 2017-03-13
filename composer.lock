@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "69879e406a43af317353b191656aafd5",
-    "content-hash": "96098e473b028cdb2529580554a1ae3e",
+    "hash": "53a6f906825279cac44e3de88313e55e",
+    "content-hash": "cf76d895e374251f50502994656944b3",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1866,6 +1866,50 @@
     ],
     "packages-dev": [
         {
+            "name": "creativeorange/gravatar",
+            "version": "1.0.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/creativeorange/gravatar.git",
+                "reference": "a0e84f0c8e8922ad151168d6ebd8db6a1b2d8cd2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/creativeorange/gravatar/zipball/a0e84f0c8e8922ad151168d6ebd8db6a1b2d8cd2",
+                "reference": "a0e84f0c8e8922ad151168d6ebd8db6a1b2d8cd2",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "5.*",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Creativeorange\\Gravatar\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jaco Tijssen",
+                    "email": "jaco@creativeorange.nl",
+                    "homepage": "https://www.creativeorange.nl",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A Laravel 5.0, 5.1, 5.2 and 5.3 gravatar package for retrieving gravatar image URLs or checking the existance of an image.",
+            "keywords": [
+                "avatar",
+                "gravatar",
+                "laravel"
+            ],
+            "time": "2017-02-15 22:07:40"
+        },
+        {
             "name": "doctrine/instantiator",
             "version": "1.0.5",
             "source": {
@@ -3232,6 +3276,39 @@
             "time": "2016-10-03 07:35:21"
         },
         {
+            "name": "socieboy/alerts",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/socieboy/alerts.git",
+                "reference": "7d4c475ba24013cf2d17f91dcb3d711211e2ec70"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/socieboy/alerts/zipball/7d4c475ba24013cf2d17f91dcb3d711211e2ec70",
+                "reference": "7d4c475ba24013cf2d17f91dcb3d711211e2ec70",
+                "shasum": ""
+            },
+            "type": "package",
+            "autoload": {
+                "psr-4": {
+                    "Socieboy\\Alerts\\": "/src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Francisco Sepulveda",
+                    "email": "socieboy@gmail.com"
+                }
+            ],
+            "description": "Laravel Alerts with SweetAlerts",
+            "time": "2015-11-16 01:11:17"
+        },
+        {
             "name": "symfony/yaml",
             "version": "v3.2.6",
             "source": {
@@ -3339,7 +3416,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "socieboy/alerts": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
