@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'AddIsAdminAndStatusIdToUsersTable' => $baseDir . '/database/migrations/2017_03_13_095108_add_is_admin_and_status_id_to_users_table.php',
+    'AddIsSubscribedToUsersTable' => $baseDir . '/database/migrations/2017_03_13_153920_add_is_subscribed_to_users_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'CreateWidgetsTable' => $baseDir . '/database/migrations/2017_03_13_041724_create_widgets_table.php',

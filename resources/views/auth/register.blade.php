@@ -2,6 +2,14 @@
 
 @section('content')
 <div class="container">
+
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="{{ url('/') }}">Home</a></li>
+            <li class="active">Register</li>
+        </ol>
+    </div>
+
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
@@ -52,11 +60,36 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group{{ $errors->has('password_confirmation') ? ' has error': '' }}">
                             <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                            </div>
+                            @if($errors->has('password_confirmation'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('password_confirmation') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="is_subscribed" class="col-md-4 control-label">Subscribed to Newsletter</label>
+                            <div class="col-md-6">
+                                <input type="checkbox" name="is_subscribed" />
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="terms" class="col-md-4 control-label{{ $errors->has('terms') ? ' has-error': '' }}"><a
+                                        href="{{ url('/terms-of-service') }}">Agree To Terms</a></label>
+                            <div class="col-md-6">
+                                <input type="checkbox" name="terms" required />
+                                @if($errors->has('terms'))
+                                    <span class="help-block">
+                                    <strong>{{ $errors->first('terms') }}</strong>
+                                </span>
+                                @endif
                             </div>
                         </div>
 

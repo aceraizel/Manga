@@ -11,4 +11,12 @@ class PagesController extends Controller
 
         return Redirect::route('widget.index');
     }
+
+    public function terms() {
+        return view('pages.terms-of-service');
+    }
+
+    public function privacy() {
+        return view('pages.privacy');
+    }
 }

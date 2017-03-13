@@ -26,3 +26,7 @@ Route::resource('widget', "WidgetController", ['except' => ['show', 'create']]);
 Route::get('test', ['middleware' => ['auth', 'admin'], 'uses' => 'TestController@index']);
 
 Route::get('admin', ['as' => 'admin', 'uses' => 'AdminController@index']);
+
+Route::get('terms-of-service', 'PageController@terms');
+
+Route::get('privacy', 'PagesController@privacy');
